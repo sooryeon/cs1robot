@@ -9,3 +9,5 @@
 # Function left_is_clear checks if left side is clear.
 
 # Function right_is_clear checks if right side is clear.
+
+# 
