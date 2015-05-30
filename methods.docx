@@ -1,0 +1,51 @@
+** Sensors **
+
+Touch Sensor
+-is_pressed( ) : 눌리면 return True, 안눌리면 return False
+
+Light Sensor
+-set_illuminated(self, active): active = True이면 turn on light
+				    False 이면 turn off light
+-get_lightness(): 밝기 정도를 return
+
+Ultrasonic Sensor
+-get_distance( ): return distance (distance in centimeters range 0~254). If the distance cannot be read, return -1
+
+Color Sensor
+-get_Color(): return value = 1(black), 2(blue), 3(green), 4(yellow), 5(red), 6(white)
+
+Hitech Compass Sensor
+-get_heading() : north로부터의 degree를 return
+-get_relative_heading(self, target = 0): parameter -> degree of target (default value = 0)
+get_heading()함수의 return value와 target value의 차이를 return해준다.
+
+** Active **
+Module : motor
+-get_tacho(self) : 
+return the tachometer count
+
+-reset_position(self, relative): 
+reset the counters. Parameter relative = True or False
+
+-run(self, power = 100, regulated = False ): 
+motor run continuously. regulated=True이면 synchronization starts working. Synchronized 한 motor들에 대해 이 함수를 부를 경우: run(self, power = 100) 
+
+-brake(self): 
+stop the motor(바로 멈춤).
+Synchronized 한 motor들에 대해 calling: brake both motors at the same time.
+
+-idle(self): 
+stop motor whatever it’s doing. (바로 멈추지 않음)
+
+-weak_turn(self, power, tacho_units): 
+turn motor for the specified distance.
+
+-turn(self, power, tacho_units, brake = True, timeout = 1): 
+power is a value between -127 and 128 (greater than 64 is recommended).
+Tacho_units is the number of degrees to turn the motor. (values smaller than 50 are not recommended)
+Brake is whether or not to hold the motor after the function exits.
+
+
+
+
+
